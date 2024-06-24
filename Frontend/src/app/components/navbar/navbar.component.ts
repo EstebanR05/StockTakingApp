@@ -2,18 +2,20 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
+import { BaseComponent } from 'src/app/shared/core/base.component';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent extends BaseComponent implements OnInit {
   public focus;
   public listTitles: any[];
-  public location: Location;
-  constructor(location: Location,  private element: ElementRef, private router: Router) {
-    this.location = location;
+
+  constructor(public location: Location,  private element: ElementRef, private route: Router, private userService: UserService) {
+    super();
   }
 
   ngOnInit() {
@@ -31,6 +33,12 @@ export class NavbarComponent implements OnInit {
         }
     }
     return 'Dashboard';
+  }
+
+  public async logout(): Promise<void> {
+    this.clearHistory();
+    this.route.navigate(['/login']);
+    await this.userService.logout();
   }
 
 }
