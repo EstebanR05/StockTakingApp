@@ -5,7 +5,6 @@ import { user, userLogin } from "../interface/user.interface";
 import {
   createUserService,
   findByIdUser,
-  findOneByCode,
   findOneByEmail,
   updateUserService,
 } from "../services/UserService";
@@ -35,10 +34,9 @@ export async function register(_req: Request, res: Response): Promise<any> {
   try {
     const body: user = _req.body;
     const user: user = await findOneByEmail(body.email);
-    const code: user = await findOneByCode(body.studentCode);
 
-    if (user || code) {
-      throw new Error("can not create, existing other user using the email or code!");
+    if (user) {
+      throw new Error("can not create, existing other user using the email!");
     }
 
     const result: user = await createUserService(body);

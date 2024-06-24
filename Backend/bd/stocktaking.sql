@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2024 at 09:22 PM
+-- Generation Time: Jun 24, 2024 at 11:30 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -30,10 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(22) NOT NULL,
-  `lastName` varchar(22) NOT NULL,
+  `lastName` varchar(22) DEFAULT NULL,
   `email` varchar(22) NOT NULL,
   `password` varchar(22) NOT NULL,
-  `studentCode` int(12) NOT NULL,
   `username` varchar(20) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `profession` varchar(20) DEFAULT NULL,
@@ -50,9 +49,29 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `lastName`, `email`, `password`, `studentCode`, `username`, `age`, `profession`, `university`, `address`, `phone`, `city`, `country`, `postalCode`, `aboutMe`) VALUES
-(1, 'emanuel esteban', 'restrepo', 'e05072003@gmail.com', '$2b$10$/ZVcbLPSiVKSMj/', 121212, 'nabetse05', 21, 'ing sistemas', 'unicomfacauca', 'carrera #5 - 22', '3116686210', 'popayan', 'colombia', 1456, 'ill be one the greatest'),
-(2, 'steiner', 'herrera', 'steinerherrera@gmail.c', '$2b$10$9QqzmhR/S.0mZXA', 121212, 'juegosSteiner', 17, 'ing sistemas', 'autonoma', 'carrera #6 - 22', '302 6226935', 'cali', 'colombia', 6541, 'hello word im steiner');
+INSERT INTO `users` (`id`, `name`, `lastName`, `email`, `password`, `username`, `age`, `profession`, `university`, `address`, `phone`, `city`, `country`, `postalCode`, `aboutMe`) VALUES
+(1, 'emanuel esteban', 'restrepo', 'e05072003@gmail.com', '$2b$10$/ZVcbLPSiVKSMj/', 'nabetse05', 21, 'ing sistemas', 'unicomfacauca', 'carrera #5 - 22', '3116686210', 'popayan', 'colombia', 1456, 'ill be one the greatest'),
+(2, 'steiner', 'herrera', 'steinerherrera@gmail.c', '$2b$10$9QqzmhR/S.0mZXA', 'juegosSteiner', 17, 'ing sistemas', 'autonoma', 'carrera #6 - 22', '302 6226935', 'cali', 'colombia', 6541, 'hello word im steiner');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

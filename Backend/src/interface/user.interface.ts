@@ -4,7 +4,6 @@ export interface user {
   lastName: string;
   email: string;
   password: string;
-  studentCode: number;
   username: string;
   age: number;
   profession: string;
