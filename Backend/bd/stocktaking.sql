@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2024 at 03:48 PM
+-- Generation Time: Jun 25, 2024 at 04:04 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -44,6 +44,35 @@ CREATE TABLE `employees` (
   `postalCode` int(11) DEFAULT NULL,
   `aboutMe` varchar(200) DEFAULT NULL,
   `id_user` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inventory`
+--
+
+CREATE TABLE `inventory` (
+  `id` int(11) NOT NULL,
+  `sparePart` int(11) DEFAULT NULL,
+  `value` decimal(10,0) DEFAULT NULL,
+  `idUser` int(11) NOT NULL,
+  `date` datetime DEFAULT NULL,
+  `saleDate` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `spareparts`
+--
+
+CREATE TABLE `spareparts` (
+  `id` int(11) NOT NULL,
+  `image` varchar(500) DEFAULT NULL,
+  `sparePart` varchar(200) DEFAULT NULL,
+  `brand` varchar(200) DEFAULT NULL,
+  `code` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -90,6 +119,19 @@ ALTER TABLE `employees`
   ADD KEY `employees_users_fk` (`id_user`);
 
 --
+-- Indexes for table `inventory`
+--
+ALTER TABLE `inventory`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `inventory_spareparts_fk` (`sparePart`);
+
+--
+-- Indexes for table `spareparts`
+--
+ALTER TABLE `spareparts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -103,6 +145,18 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `inventory`
+--
+ALTER TABLE `inventory`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `spareparts`
+--
+ALTER TABLE `spareparts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -120,6 +174,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `employees`
   ADD CONSTRAINT `employees_users_fk` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `inventory`
+--
+ALTER TABLE `inventory`
+  ADD CONSTRAINT `inventory_spareparts_fk` FOREIGN KEY (`sparePart`) REFERENCES `spareparts` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
