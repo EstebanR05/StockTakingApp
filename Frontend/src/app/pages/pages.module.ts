@@ -12,6 +12,7 @@ import { IconsComponent } from './core/icons/icons.component';
 import { TablesComponent } from './core/tables/tables.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EmployeesListComponent } from './employees/employees-list/employees-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     UserProfileComponent,
     TablesComponent,
     IconsComponent,
-    MapsComponent
+    MapsComponent,
+    EmployeesListComponent
   ],
   imports: [
     CommonModule,
