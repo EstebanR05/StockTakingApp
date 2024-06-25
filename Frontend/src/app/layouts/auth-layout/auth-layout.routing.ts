@@ -4,6 +4,8 @@ import { LoginComponent } from '../../pages/auth/login/login.component';
 import { RegisterComponent } from '../../pages/auth/register/register.component';
 
 export const AuthLayoutRoutes: Routes = [
-    { path: 'login',          component: LoginComponent },
-    { path: 'register',       component: RegisterComponent }
+    {
+        path: '',
+        loadChildren: () => import('src/app/pages/auth/auth.module').then(m => m.AuthModule)
+    }
 ];
