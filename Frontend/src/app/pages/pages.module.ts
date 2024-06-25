@@ -7,9 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClipboardModule } from 'ngx-clipboard';
 
-import { MapsComponent } from './maps/maps.component';
-import { IconsComponent } from './icons/icons.component';
-import { TablesComponent } from './tables/tables.component';
+import { MapsComponent } from './core/maps/maps.component';
+import { IconsComponent } from './core/icons/icons.component';
+import { TablesComponent } from './core/tables/tables.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 

@@ -2,9 +2,9 @@ import { Routes } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { TablesComponent } from './tables/tables.component';
-import { IconsComponent } from './icons/icons.component';
-import { MapsComponent } from './maps/maps.component';
+import { TablesComponent } from './core/tables/tables.component';
+import { IconsComponent } from './core/icons/icons.component';
+import { MapsComponent } from './core/maps/maps.component';
 
 export const pagesRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
