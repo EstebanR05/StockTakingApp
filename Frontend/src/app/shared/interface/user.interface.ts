@@ -5,8 +5,8 @@ export interface user {
   email: string;
   username: string;
   age: number;
-  profession: string;
-  university: string;
+  staff: string;
+  company: string;
   address: string;
   phone: number;
   city: string;

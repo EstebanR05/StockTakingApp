@@ -35,12 +35,13 @@ CREATE TABLE `employees` (
   `password` varchar(22) NOT NULL,
   `username` varchar(20) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
-  `profession` varchar(20) DEFAULT NULL,
-  `university` varchar(20) DEFAULT NULL,
+  `staff` varchar(20) DEFAULT NULL,
+  `company` varchar(20) DEFAULT NULL,
   `address` varchar(20) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `city` varchar(20) DEFAULT NULL,
   `country` varchar(20) DEFAULT NULL,
+  `userInformation` varchar(20) DEFAULT NULL,
   `postalCode` int(11) DEFAULT NULL,
   `aboutMe` varchar(200) DEFAULT NULL,
   `positionemployee` varchar(100) DEFAULT NULL,
@@ -90,12 +91,13 @@ CREATE TABLE `users` (
   `password` varchar(22) NOT NULL,
   `username` varchar(20) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
-  `profession` varchar(20) DEFAULT NULL,
-  `university` varchar(20) DEFAULT NULL,
+  `staff` varchar(20) DEFAULT NULL,
+  `company` varchar(20) DEFAULT NULL,
   `address` varchar(20) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `city` varchar(20) DEFAULT NULL,
   `country` varchar(20) DEFAULT NULL,
+  `userInformation` varchar(120) DEFAULT NULL,
   `postalCode` int(11) DEFAULT NULL,
   `aboutMe` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
@@ -104,9 +106,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `lastName`, `email`, `password`, `username`, `age`, `profession`, `university`, `address`, `phone`, `city`, `country`, `postalCode`, `aboutMe`) VALUES
-(1, 'emanuel esteban', 'restrepo', 'e05072003@gmail.com', '$2b$10$/ZVcbLPSiVKSMj/', 'nabetse05', 21, 'ing sistemas', 'unicomfacauca', 'carrera #5 - 22', '3116686210', 'popayan', 'colombia', 1456, 'ill be one the greatest'),
-(2, 'steiner', 'herrera', 'steinerherrera@gmail.c', '$2b$10$9QqzmhR/S.0mZXA', 'juegosSteiner', 17, 'ing sistemas', 'autonoma', 'carrera #6 - 22', '302 6226935', 'cali', 'colombia', 6541, 'hello word im steiner');
+INSERT INTO `users` (`id`, `name`, `lastName`, `email`, `password`, `username`, `age`, `staff`, `company`, `address`, `phone`, `city`, `country`, `userInformation`, `postalCode`, `aboutMe`) VALUES
+(1, 'emanuel esteban', 'restrepo', 'e05072003@gmail.com', '$2b$10$/ZVcbLPSiVKSMj/', 'nabetse05', 21, 'empleado', 'Google', 'carrera #5 - 22', '3116686210', 'popayan', 'colombia','me gusta programar', 1456, 'ill be one the greatest'),
+(2, 'steiner', 'herrera', 'steinerherrera@gmail.c', '$2b$10$9QqzmhR/S.0mZXA', 'juegosSteiner', 18, 'empleado', 'Amazon', 'carrera #6 - 22', '302 6226935', 'cali', 'colombia', 'Me gusta la sandia', 6541, 'hello word im steiner');
 
 --
 -- Indexes for dumped tables

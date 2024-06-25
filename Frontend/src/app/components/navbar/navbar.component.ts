@@ -4,6 +4,8 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 import { Router } from '@angular/router';
 import { BaseComponent } from 'src/app/shared/core/base.component';
 import { UserService } from 'src/app/shared/services/user.service';
+import { user } from 'src/app/shared/interface/user.interface';
+
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +15,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class NavbarComponent extends BaseComponent implements OnInit {
   public focus;
   public listTitles: any[];
+  public user: user;
 
   constructor(public location: Location,  private element: ElementRef, private route: Router, private userService: UserService) {
     super();
@@ -20,6 +23,7 @@ export class NavbarComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
     this.listTitles = ROUTES.filter(listTitle => listTitle);
+    this.getName();
   }
   getTitle(){
     var titlee = this.location.prepareExternalUrl(this.location.path());
@@ -39,6 +43,15 @@ export class NavbarComponent extends BaseComponent implements OnInit {
     this.clearHistory();
     this.route.navigate(['/login']);
     await this.userService.logout();
+  }
+
+  public async getName(): Promise<void> {
+    try {
+      const response = await this.userService.getUser();
+      this.user = response;
+    } catch (error) { 
+      this.handleError(error.element.message);
+    }
   }
 
 }
