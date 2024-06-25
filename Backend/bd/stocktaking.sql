@@ -43,6 +43,7 @@ CREATE TABLE `employees` (
   `country` varchar(20) DEFAULT NULL,
   `postalCode` int(11) DEFAULT NULL,
   `aboutMe` varchar(200) DEFAULT NULL,
+  `positionemployee` varchar(100) DEFAULT NULL,
   `id_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
