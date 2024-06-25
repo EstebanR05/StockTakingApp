@@ -6,13 +6,14 @@ export interface user {
   password: string;
   username: string;
   age: number;
-  profession: string;
-  university: string;
+  staff: string;
+  company: string;
   address: string;
   phone: number;
   city: string;
   country: string;
   postalCode: number;
+  userInformation: string;
   aboutMe: string;
   token: string;
 }

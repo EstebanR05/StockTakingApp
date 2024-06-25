@@ -1,4 +1,3 @@
-import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import { user } from "../interface/user.interface";
@@ -15,21 +14,31 @@ export const createToken = (user: user): string => {
   return jwt.sign(user, secret);
 };
 
-export const validatedToken = (_req: Request, res: Response) => {
-  const authorization = _req.get("authorization");
-  let decodeToken = {} as any;
-  let token = null || '';
+export const validatedToken = (req: any, res: any, next: any) => {
+  const authorization = req.get("authorization");
+  let decodeToken: any = {};
+  let token = null;
   const secret = process.env.ACCESS_TOKEN_SECRET || '';
 
   if (authorization && authorization.toLowerCase().startsWith("bearer")) {
     token = authorization.substring(7);
   }
 
-  decodeToken = jwt.verify(token, secret);
-  
+  if (token) {
+    try {
+      decodeToken = jwt.verify(token, secret);
+    } catch (error) {
+      return res.status(401).json({ error: "token invalid!" });
+    }
+  }
+
   if (!token || !decodeToken.id) {
     return res.status(401).json({ error: "token missing or invalid!" });
   }
 
-  return decodeToken;
+  const userId: number = decodeToken.id;
+  req.userId = userId;
+
+  next();
 };
+

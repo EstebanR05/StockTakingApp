@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
-import { createToken, validatedToken } from "../security/jwt";
+import { createToken } from "../security/jwt";
 import { user, userLogin } from "../interface/user.interface";
 import {
   createUserService,
@@ -49,15 +49,14 @@ export async function register(_req: Request, res: Response): Promise<any> {
 export async function updateUser(_req: Request, res: Response): Promise<any> {
   try {
     const body: user = _req.body;
-    const decode: user = validatedToken(_req, res);
-    const id: number = decode.id;
+    const userId: number = (_req as any).userId;
     const user: user = await findOneByEmail(body.email);
 
-    if (!(user.id == id)) {
+    if (!(user.id == userId)) {
       throw new Error("can not update, this process is invalid!");
     }
 
-    const result: user = await updateUserService(id, body);
+    const result: user = await updateUserService(userId, body);
     res.status(201).send(result);
   } catch (error: any) {
     res.status(500).json({ message: error.message });
@@ -66,9 +65,8 @@ export async function updateUser(_req: Request, res: Response): Promise<any> {
 
 export async function getUser(_req: Request, res: Response) {
   try {
-    const decode: user = validatedToken(_req, res);
-    const id: number = decode.id;
-    const result: user = await findByIdUser(id);
+    const userId: number = (_req as any).userId;
+    const result: user = await findByIdUser(userId);
     res.status(201).send(result);
   } catch (error: any) {
     res.status(500).json({ message: error.message });

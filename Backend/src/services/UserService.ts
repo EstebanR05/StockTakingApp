@@ -44,12 +44,13 @@ export async function updateUserService(id: number, user: user): Promise<user> {
       email = '${user.email}',  
       username = '${user.username}',
       age = '${user.age}',
-      profession = '${user.profession}',
-      university = '${user.university}',
+      staff = '${user.staff}',
+      company = '${user.company}',
       address = '${user.address}',
       phone = '${user.phone}',
       city = '${user.city}',
       country = '${user.country}',
+      userInformation = '${user.userInformation}',
       postalCode = '${user.postalCode}',
       aboutMe = '${user.aboutMe}' 
     WHERE Users.id = '${id}'`
