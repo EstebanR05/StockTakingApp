@@ -7,6 +7,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import UserRoute from "./routes/UserRoute";
+import employeesRoute from "./routes/EmployeesRoute";
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.use(bodyParser.json());
 
 //routes
 app.use("/api", UserRoute);
+app.use("/api/employees", employeesRoute);
 
 const server = http.createServer(app);
 
