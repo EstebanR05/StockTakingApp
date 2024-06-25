@@ -16,8 +16,12 @@ export class UserProfileComponent extends BaseComponent implements OnInit {
   }
 
   async getInfoUser(): Promise<void> {
-    const response = await this.userService.getUser();
-    this.data = response;
+    try {
+      const response = await this.userService.getUser();
+      this.data = response;
+    } catch (error) {
+      this.handleError(error.element.message);
+    }
   }
 
 }
