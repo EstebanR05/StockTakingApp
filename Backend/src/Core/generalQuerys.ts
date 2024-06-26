@@ -34,9 +34,12 @@ export const insertQuery = async <T>(table: string, data: any): Promise<T> => {
 
 export const updateQuery = async <T>(table: string, data: any, condition: string, params: QueryParams = []): Promise<T> => {
     try {
-        const query = `UPDATE ${table} SET ? WHERE ${condition}`;
-        return await executeQuery<T>(query, [data, ...params]);
+        const setClause = Object.keys(data).map(key => `${key} = ?`).join(', ');
+        const query = `UPDATE ${table} SET ${setClause} WHERE ${condition}`;
+        const queryParams = [...Object.values(data), ...params];
+        return await executeQuery<T>(query, queryParams);
     } catch (error: any) {
+        console.error(`Error in updateQuery: ${error.message}`);
         throw new Error(`Error in UPDATE query: ${error.message}`);
     }
 };

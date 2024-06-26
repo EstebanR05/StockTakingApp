@@ -11,7 +11,7 @@ import { IEmployees } from "../interface/employees.interface";
 
 export const getAllEmployee = async (_req: Request, res: Response) => {
     try {
-        const result: IEmployees[] = await findAllEmployee();
+        const result: IEmployees[] = await findAllEmployee((_req as any).userId);
         res.status(200).send(result);
     } catch (error: any) {
         res.status(500).json({ message: error.error });
@@ -20,7 +20,7 @@ export const getAllEmployee = async (_req: Request, res: Response) => {
 
 export const getByIdEmployee = async (_req: Request, res: Response) => {
     try {
-        const result: IEmployees = await findByIdEmployee(parseInt(_req.params.id, 10));
+        const result: IEmployees = await findByIdEmployee(parseInt(_req.params.id, 10), (_req as any).userId);
         res.status(200).send(result);
     } catch (error: any) {
         res.status(500).json({ message: error.error });
@@ -29,7 +29,10 @@ export const getByIdEmployee = async (_req: Request, res: Response) => {
 
 export const createEmployee = async (_req: Request, res: Response) => {
     try {
-        const result: IEmployees = await createEmployees(_req.body);
+        const body: IEmployees = _req.body;
+        body.id_admin = parseInt((_req as any).userId);
+
+        const result: IEmployees = await createEmployees(body);
         res.status(200).send(result);
     } catch (error: any) {
         res.status(500).json({ message: error.error });
@@ -39,7 +42,8 @@ export const createEmployee = async (_req: Request, res: Response) => {
 export const updateEmployee = async (_req: Request, res: Response) => {
     try {
         const body: IEmployees = _req.body;
-        body.id_user = (_req as any).userId;
+        body.id_admin = parseInt((_req as any).userId);
+
         const result: IEmployees = await updateEmployees(parseInt(_req.params.id, 10), body);
         res.status(200).send(result);
     } catch (error: any) {

@@ -16,5 +16,5 @@ export interface IEmployees {
     postalCode: number,
     aboutMe: number,
     positionemployee: number,
-    id_user: number,
+    id_admin: number,
 }

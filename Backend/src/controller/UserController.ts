@@ -14,7 +14,7 @@ export async function login(_req: Request, res: Response): Promise<any> {
   const user: Iuser = await findOneByEmail(login.email);
 
   const passwordCorrect =
-    user == null ? false : await bcrypt.compare(login.password, user.password); // Comparing hashed password with plaintext password
+    (user == {} as Iuser || user == null) ? false : await bcrypt.compare(login.password, user.password); // Comparing hashed password with plaintext password
 
   if (!(user && !passwordCorrect)) {
     return res.status(401).json({ message: "Invalid email or password!" });
@@ -35,7 +35,7 @@ export async function register(_req: Request, res: Response): Promise<any> {
     const body: Iuser = _req.body;
     const user: Iuser = await findOneByEmail(body.email);
 
-    if (user) {
+    if (user == {} as Iuser) {
       throw new Error("can not create, existing other user using the email!");
     }
 
