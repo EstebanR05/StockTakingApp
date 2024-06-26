@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserProfileComponent } from './user-profile/profile/user-profile.component';
 import { TablesComponent } from './core/tables/tables.component';
 import { IconsComponent } from './core/icons/icons.component';
 import { MapsComponent } from './core/maps/maps.component';

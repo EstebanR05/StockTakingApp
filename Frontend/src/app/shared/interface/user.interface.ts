@@ -11,6 +11,7 @@ export interface user {
   phone: number;
   city: string;
   country: string;
+  userInformation: string;
   postalCode: number;
   aboutMe: string;
   token: string;

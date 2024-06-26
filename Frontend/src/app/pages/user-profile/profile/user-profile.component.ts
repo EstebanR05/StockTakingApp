@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/shared/core/base.component';
+import { user } from 'src/app/shared/interface/user.interface';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -8,11 +9,11 @@ import { UserService } from 'src/app/shared/services/user.service';
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent extends BaseComponent implements OnInit {
-  public data: any = []
+  public data = {} as user;
   constructor( private userService: UserService) { super() }
 
   ngOnInit() {
-    this.getInfoUser();
+    this.onReload();
   }
 
   async getInfoUser(): Promise<void> {
@@ -22,6 +23,10 @@ export class UserProfileComponent extends BaseComponent implements OnInit {
     } catch (error) {
       this.handleError(error.element.message);
     }
+  }
+
+  public onReload(): void {
+    this.getInfoUser();
   }
 
 }
