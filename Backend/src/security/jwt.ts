@@ -1,10 +1,10 @@
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import { user } from "../interface/user.interface";
+import { Iuser } from "../interface/user.interface";
 
 dotenv.config();
 
-export const createToken = (user: user): string => {
+export const createToken = (user: Iuser): string => {
   const secret = process.env.ACCESS_TOKEN_SECRET;
 
   if (!secret) {

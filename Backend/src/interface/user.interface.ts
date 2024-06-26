@@ -1,4 +1,4 @@
-export interface user {
+export interface Iuser {
   id: number;
   name: string;
   lastName: string;
@@ -18,7 +18,7 @@ export interface user {
   token: string;
 }
 
-export interface userLogin {
+export interface IuserLogin {
   email: string;
   password: string;
 }

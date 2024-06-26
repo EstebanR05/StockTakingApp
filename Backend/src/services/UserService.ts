@@ -1,5 +1,5 @@
 import { conexion } from "../conexion_bd";
-import { user } from "../interface/user.interface";
+import { Iuser } from "../interface/user.interface";
 import bcrypt from "bcrypt";
 
 export async function findOneByEmail(email: string) {
@@ -7,17 +7,17 @@ export async function findOneByEmail(email: string) {
     `SELECT * FROM Users where email = '${email}'`
   );
 
-  return resp[0] as user;
+  return resp[0] as Iuser;
 }
 
-export async function findByIdUser(id: number): Promise<user> {
+export async function findByIdUser(id: number): Promise<Iuser> {
   const [rows]: any = await conexion.query("SELECT * FROM Users WHERE id = ?", [
     id,
   ]);
-  return rows[0] as user;
+  return rows[0] as Iuser;
 }
 
-export async function createUserService(user: user): Promise<user> {
+export async function createUserService(user: Iuser): Promise<Iuser> {
   const hashedPassword = await bcrypt.hash(user.password, 10);
 
   const [resp]: any = await conexion.query(
@@ -34,7 +34,7 @@ export async function createUserService(user: user): Promise<user> {
   return findByIdUser(id);
 }
 
-export async function updateUserService(id: number, user: user): Promise<user> {
+export async function updateUserService(id: number, user: Iuser): Promise<Iuser> {
   //const hashedPassword = await bcrypt.hash(user.password, 10);
 
   const [resp] = await conexion.query(
