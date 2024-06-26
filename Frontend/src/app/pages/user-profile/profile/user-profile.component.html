@@ -7,7 +7,7 @@
       <div class="col-lg-7 col-md-10">
         <h1 class="display-2 text-white">Hello {{this.data.name}}</h1>
         <p class="text-white mt-0 mb-5">Hola, esta es tu pagina de usuario, donde puedes ver tu información más a detalle y poder editarla si es necesario.</p>
-        <a href="#!" class="btn btn-info">Editar perfil</a>
+        <button href="#!" class="btn btn-info" (click)="this.openModal($event)"> Editar perfil</button>
       </div>
     </div>
   </div>
@@ -157,3 +157,30 @@
     </div>
   </div>
 </div>
+
+<!--modal reactive programming-->
+<ng-container *ngIf="modalDisplay$ | async as modalDisplay;" data-bs-spy="scroll">
+  <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':modalDisplay}">
+      <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+              <div class="modal-body p-0">
+                  <div class="card p-3">
+                      <div class="card-header bg-white">
+                          <div class="d-flex justify-content-between">
+                              <strong class="aling-self-center">Editar Informacioón del Perfil</strong>
+                              <div class="text-end">
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                      (click)="closeModalMethod()">
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                      <ng-container *ngIf="selected$ | async as selected">
+                        <app-modal-profile [modal]="selected" (closeModal)="closeModalMethod()" (reload)="onReload()"></app-modal-profile>
+                      </ng-container>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</ng-container>

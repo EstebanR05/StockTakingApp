@@ -1,0 +1,126 @@
+<div class="modal-body-scrollable">
+    <form [formGroup]="form" (ngSubmit)="submit()" #ngForm="ngForm" role="form"> 
+        <div class="pl-lg-4">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="form-control-label text-dark fw-bold "
+                            for="input-username">Nombre de Usuario</label>
+                        <input [value]="" formControlName="username" type="text" id="input-username"
+                            class="form-control form-control-alternative" placeholder="Username"
+                            >
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="form-control-label fw-bold" for="input-email">Correo Electronico</label>
+                        <input [value]="" type="email" id="input-email"
+                            class="form-control form-control-alternative"
+                            placeholder="jesse@example.com" formControlName="email">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label class="form-control-label fw-bold" for="input-first-name">Nombre(s)</label>
+                        <input type="text" id="input-first-name"
+                            class="form-control form-control-alternative" placeholder="First name"
+                            [value]="" formControlName="name">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label class="form-control-label fw-bold" for="input-last-name">Apellidos</label>
+                        <input type="text" id="input-last-name"
+                            class="form-control form-control-alternative" placeholder="Last name"
+                            [value]="" formControlName="lastName">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label class="form-control-label fw-bold" for="input-last-name">Edad</label>
+                        <input type="number" id="input-last-name"
+                            class="form-control form-control-alternative" placeholder="Edad"
+                            [value]="" formControlName="age">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-lg-6">
+                    <label class="form-control-label fw-bold"
+                        for="input-first-name">Posicion en la empresa</label>
+                    <input type="text" id="input-first-name"
+                        class="form-control form-control-alternative" placeholder="Position"
+                        [value]="" formControlName="staff">
+                </div>
+                <div class="col-lg-6">
+                    <label class="form-control-label fw-bold" for="input-first-name">Compañia</label>
+                    <input type="text" id="input-first-name"
+                        class="form-control form-control-alternative" placeholder="Company"
+                        [value]="" formControlName="company">
+                </div>
+            </div>
+        </div>
+        <hr class="my-4" />
+        <!-- Address -->
+        <h6 class="heading-small h5 text-muted mb-4 fw-bold">Informacion de contacto</h6>
+        <div class="pl-lg-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label fw-bold" for="input-address">Direccion</label>
+                        <input id="input-address" class="form-control form-control-alternative"
+                            placeholder="Home Address" [value]="" type="text" formControlName="address">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label fw-bold" for="input-address">Numero de telefono</label>
+                        <input id="input-address" class="form-control form-control-alternative"
+                            placeholder="Home Address" [value]="" type="text" formControlName="phone">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label class="form-control-label fw-bold" for="input-city">Ciudad</label>
+                        <input type="text" id="input-city" class="form-control form-control-alternative"
+                            placeholder="City" [value]="" formControlName="city">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label class="form-control-label fw-bold" for="input-country">Pais</label>
+                        <input type="text" id="input-country"
+                            class="form-control form-control-alternative" placeholder="Country"
+                            [value]="" formControlName="country">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label class="form-control-label fw-bold" for="input-country">Codigo Postal</label>
+                        <input type="number" id="input-postal-code"
+                            class="form-control form-control-alternative" [value]=""
+                            placeholder="Postal code" formControlName="postalCode">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4" />
+        <!-- Description -->
+        <h6 class="heading-small text-muted mb-4 h5 fw-bold">Sobre mi</h6>
+        <div class="pl-lg-4">
+            <div class="form-group">
+                <textarea rows="4" class="form-control form-control-alternative"
+                    placeholder="A few words about you ... " formControlName="aboutMe"></textarea>
+            </div>
+        </div>       
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="this.closeModal.emit();"
+                    data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" type="submit">Guardar cambios</button>
+            </div>
+        </form>
+    </div>

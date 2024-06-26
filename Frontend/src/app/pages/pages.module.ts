@@ -10,13 +10,11 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { MapsComponent } from './core/maps/maps.component';
 import { IconsComponent } from './core/icons/icons.component';
 import { TablesComponent } from './core/tables/tables.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    UserProfileComponent,
     TablesComponent,
     IconsComponent,
     MapsComponent,
@@ -27,7 +25,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HttpClientModule,
     NgbModule,
     ClipboardModule,
-    RouterModule.forChild(pagesRoutes)
+    RouterModule.forChild(pagesRoutes),
   ]
 })
 export class PagesModule { }
