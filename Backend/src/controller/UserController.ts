@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
-import { createToken } from "../security/jwt";
+import { createToken } from "../Core/security";
 import { Iuser, IuserLogin } from "../interface/user.interface";
 import {
   createUserService,

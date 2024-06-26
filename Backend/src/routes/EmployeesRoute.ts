@@ -1,5 +1,5 @@
 import express from "express";
-import { validatedToken } from "../security/jwt";
+import { validatedToken } from "../Core/security";
 import {
     createEmployee,
     deleteEmployee,

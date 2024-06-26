@@ -1,5 +1,5 @@
-<div class="modal-body-scrollable">
-    <form [formGroup]="form" (ngSubmit)="submit()" #ngForm="ngForm" role="form"> 
+<div class="modal-body-scrollable mt-3">
+    <form [formGroup]="form" (ngSubmit)="submit()" #ngForm="ngForm" role="form">
         <div class="pl-lg-4">
             <div class="row">
                 <div class="col-lg-6">
@@ -116,7 +116,7 @@
                 <textarea rows="4" class="form-control form-control-alternative"
                     placeholder="A few words about you ... " formControlName="aboutMe"></textarea>
             </div>
-        </div>       
+        </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" (click)="this.closeModal.emit();"
                     data-bs-dismiss="modal">Cerrar</button>

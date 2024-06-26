@@ -1,4 +1,4 @@
-import { conexion } from "../conexion_bd";
+import { conexion } from "../Core/conexion_bd";
 import { Iuser } from "../interface/user.interface";
 import bcrypt from "bcrypt";
 
