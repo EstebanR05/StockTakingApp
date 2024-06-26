@@ -6,8 +6,6 @@ export const findAllEmployee = async (idAdmin: number): Promise<IEmployees[]> =>
 };
 
 export const findByIdEmployee = async (id: number, idAdmin: number): Promise<IEmployees> => {
-    console.log(id, idAdmin);
-    
     const result = await selectQuery<IEmployees[]>('Users', ['*'], 'id = ? and id_admin = ?', [id, idAdmin]);
     return result.length > 0 ? result[0] : {} as IEmployees;
 };
