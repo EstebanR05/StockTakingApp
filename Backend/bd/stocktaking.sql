@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2024 at 10:37 PM
+-- Generation Time: Jun 27, 2024 at 10:56 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -73,7 +73,6 @@ CREATE TABLE `users` (
   `userInformation` varchar(120) DEFAULT NULL,
   `postalCode` int(11) DEFAULT NULL,
   `aboutMe` varchar(200) DEFAULT NULL,
-  `positionemployee` varchar(100) DEFAULT NULL,
   `id_admin` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
 
@@ -81,9 +80,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `lastName`, `email`, `password`, `username`, `age`, `staff`, `company`, `address`, `phone`, `city`, `country`, `userInformation`, `postalCode`, `aboutMe`, `positionemployee`, `id_admin`) VALUES
-(1, 'emanuel esteban', 'restrepo', 'e05072003@gmail.com', '$2b$10$/ZVcbLPSiVKSMj/', 'nabetse05', 21, 'desarrolador de soft', 'Siscontri Software', 'carrera #5 - 22', '3116686210', 'popayan', 'colombia', 'quiero crecer cada dia mas en esta empresa', 1456, 'ill be one the greatest', '', NULL),
-(2, 'steiner', 'herrera', 'steinerherrera@gmail.c', '$2b$10$9QqzmhR/S.0mZXA', 'juegosSteiner', 18, 'empleado', 'Amazon', 'carrera #6 - 22', '302 6226935', 'cali', 'colombia', 'Me gusta la sandia', 6541, 'hello word im steiner', '', NULL);
+INSERT INTO `users` (`id`, `name`, `lastName`, `email`, `password`, `username`, `age`, `staff`, `company`, `address`, `phone`, `city`, `country`, `userInformation`, `postalCode`, `aboutMe`, `id_admin`) VALUES
+(1, 'emanuel esteban', 'restrepo', 'e05072003@gmail.com', '$2b$10$/ZVcbLPSiVKSMj/', 'nabetse05', 21, 'desarrolador de soft', 'Siscontri Software', 'carrera #5 - 22', '3116686210', 'popayan', 'colombia', 'quiero crecer cada dia mas en esta empresa', 1456, 'ill be one the greatest', NULL),
+(2, 'steiner', 'herrera', 'steinerherrera@gmail.c', '$2b$10$9QqzmhR/S.0mZXA', 'juegosSteiner', 18, 'empleado', 'Amazon', 'carrera #6 - 22', '302 6226935', 'cali', 'colombia', 'Me gusta la sandia', 6541, 'hello word im steiner', NULL),
+(15, 'ariana', 'Andrade', 'Andrade@gmail.com', '$2b$10$/ZVcbLPSiVKSMj/', 'arianitaHermosa', 16, 'asistente administra', 'asistente', 'carrera #5 - 22', '310 4295482', 'popayan', 'colombia', 'quiero crecer cada dia mas en esta empresa', 1456, 'persona con excelente carisma', 1),
+(16, 'miguel', 'pinto', 'pinto@gmail.com', '123456', 'pinto', 18, 'gerente financiero', 'webcol', 'carerra 4 #13-15', '325012145', 'cali', 'Colombia', 'te encargaras de manejar las finanzas y ser un excelente trabajador', 5623256, 'excelente persona, muy tranquilo y buen compañero', 1),
+(17, 'alex', 'zurdo', 'zurdo@gmail.com', '123456', 'zurdo', 21, 'mecanico', 'webcol', 'carerra 4 #15-16', '251455142504', 'Piendamó', 'Colombia', 'se encargara de cambiar llanatas', 52152, 'excelente en su trabajo, no se queda con lo primero', 1);
 
 --
 -- Indexes for dumped tables
@@ -128,7 +130,7 @@ ALTER TABLE `spareparts`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
