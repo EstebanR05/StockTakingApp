@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from "../../../shared/core/base.component";
 import { EmployeesService } from 'src/app/shared/services/employees.service';
 import { IEmployees } from 'src/app/shared/interface/employees.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employees-list',
@@ -12,7 +13,7 @@ export class EmployeesListComponent extends BaseComponent implements OnInit {
 
   public employeesList: IEmployees[] = [];
 
-  constructor(private employeeService: EmployeesService) {
+  constructor(private employeeService: EmployeesService, public route: Router) {
     super()
   }
 
@@ -30,7 +31,8 @@ export class EmployeesListComponent extends BaseComponent implements OnInit {
 
   async delete(id: number): Promise<void> {
     try {
-      return await this.employeeService.delete(id).then(() => this.handleSuccess('success!'));
+      await this.employeeService.delete(id).then(() => this.handleSuccess('success!'));
+      await this.getAll();
     } catch (error: any) {
       this.handleError(error.error.message);
     }
