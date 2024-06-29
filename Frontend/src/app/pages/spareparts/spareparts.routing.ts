@@ -4,5 +4,6 @@ import { SparepartsManagerComponent } from "./spareparts-manager/spareparts-mana
 
 export const sparePartsRoutes: Routes = [
     { path: 'list', component: SparepartsListComponent },
-    { path: 'manager', component: SparepartsManagerComponent }
+    { path: 'create', component: SparepartsManagerComponent },
+    { path: 'update/:id', component: SparepartsManagerComponent }
 ];
