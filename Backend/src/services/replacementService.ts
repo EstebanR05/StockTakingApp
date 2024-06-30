@@ -26,5 +26,5 @@ export const updateSpareParts = async (id: number, replacement: IReplacement): P
 
 
 export const deleteSpareParts = async (id: number): Promise<void> => {
-    await deleteQuery<IReplacement[]>('spareparts', 'id = ?', [id]);
+    await deleteQuery<IReplacement>('spareparts', 'id = ?', [id]);
 }
