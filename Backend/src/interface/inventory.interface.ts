@@ -5,4 +5,6 @@ export interface IInventory {
     idUser: number;
     date: string;
     saleDate: string;
+    amount: number;
+    id_Admin: number;
 }

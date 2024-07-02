@@ -8,8 +8,8 @@ const router = express.Router();
 router
     .get("", validatedToken, getAllInventory)
     .get("/:id", validatedToken, getByIdInventory)
-    .get("", validatedToken, createInventory)
-    .get("/:id", validatedToken, updateInventory)
-    .get("/:id", validatedToken, deleteInventory)
+    .post("", validatedToken, createInventory)
+    .put("/:id", validatedToken, updateInventory)
+    .delete("/:id", validatedToken, deleteInventory)
 
 export default router;

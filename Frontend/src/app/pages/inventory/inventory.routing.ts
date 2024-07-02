@@ -5,5 +5,6 @@ import { InventoryManagerComponent } from "./inventory-manager/inventory-manager
 
 export const invenroryRoutes: Routes = [
     { path: 'list', component: InventoryListComponent },
-    { path: 'manager', component: InventoryManagerComponent }
+    { path: 'create', component: InventoryManagerComponent },
+    { path: 'update/:id', component: InventoryManagerComponent }
 ];

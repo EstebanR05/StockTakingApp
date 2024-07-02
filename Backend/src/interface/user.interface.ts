@@ -16,6 +16,7 @@ export interface Iuser {
   userInformation: string;
   aboutMe: string;
   token: string;
+  id_admin: number;
 }
 
 export interface IuserLogin {

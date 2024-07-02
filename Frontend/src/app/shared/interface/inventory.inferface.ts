@@ -1,8 +1,9 @@
 export interface IInventory {
-    id: number;
-    sparePart: string;
-    value: string;
-    idUser: number;
-    date: string;
-    saleDate: string;
+    id: number,
+    sparePart: string,
+    value: string,
+    amount: number,
+    date: string,
+    saleDate: string,
+    idUser: number,
 }

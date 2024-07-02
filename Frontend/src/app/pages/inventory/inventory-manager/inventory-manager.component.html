@@ -2,7 +2,109 @@
     <div class="container-fluid">
         <div class="header-body">
             <!-- Card stats -->
-           
+
         </div>
     </div>
 </div>
+<!-- Page content -->
+
+<form [formGroup]="form" (ngSubmit)="submit()" #ngForm="ngForm" role="form">
+    <div class="container-fluid mt--7">
+        <div class="row">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <div class="d-flex justify-content-between">
+                            <strong>Información</strong>
+                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                <div class="btn-group me-2" role="group" aria-label="First group">
+                                    <button class="btn btn-primary btn-sm" type="submit">
+                                        Guardar
+                                    </button>
+                                </div>
+                                <div class="btn-group" role="group" aria-label="Second group">
+                                    <button (click)="this.location.back()" class="btn btn-secondary" type="button">
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label text-dark fw-bold " for="input-username">Nombre
+                                            Repuesto</label>
+                                        <select class="form-select" formControlName="sparePart">
+                                            <ng-container *ngFor="let sparepart of spareparts">
+                                                <option [value]="sparepart.id">
+                                                    {{sparepart.sparePart +" - "+ sparepart.brand}}
+                                                </option>
+                                            </ng-container>
+                                        </select>
+                                        <div *ngIf="getControl('sparePart').invalid && ngForm.submitted"
+                                            class="text-left">
+                                            <label class="text-danger text-xs">Es requerido o invalido</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label fw-bold" for="input-email">Valor</label>
+                                        <input type="text" id="input-email"
+                                            class="form-control form-control-alternative" placeholder="ingrese su valor"
+                                            formControlName="value">
+                                        <div *ngIf="getControl('value').invalid && ngForm.submitted" class="text-left">
+                                            <label class="text-danger text-xs">Es requerido o invalido</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="form-control-label fw-bold"
+                                            for="input-first-name">Cantidad</label>
+                                        <input type="number" id="input-first-name"
+                                            class="form-control form-control-alternative"
+                                            placeholder="ingrese su cantidad" formControlName="amount">
+                                        <div *ngIf="getControl('amount').invalid && ngForm.submitted" class="text-left">
+                                            <label class="text-danger text-xs">Es requerido o invalido</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="form-control-label fw-bold" for="input-last-name">Fecha de
+                                            ingreso</label>
+                                        <input type="date" id="input-last-name"
+                                            class="form-control form-control-alternative" placeholder="fecha"
+                                            formControlName="date">
+                                        <div *ngIf="getControl('date').invalid && ngForm.submitted" class="text-left">
+                                            <label class="text-danger text-xs">Es requerido o invalido</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="form-control-label fw-bold" for="input-last-name">Fecha de
+                                            venta</label>
+                                        <input type="date" id="input-last-name"
+                                            class="form-control form-control-alternative" placeholder="fecha"
+                                            formControlName="saleDate">
+                                        <div *ngIf="getControl('saleDate').invalid && ngForm.submitted"
+                                            class="text-left">
+                                            <label class="text-danger text-xs">Es requerido o invalido</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
