@@ -7,4 +7,5 @@ export interface IInventory {
     saleDate: string;
     amount: number;
     id_Admin: number;
+    brand?: string;
 }

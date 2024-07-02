@@ -5,7 +5,7 @@ import { findByIdUser } from "./UserService";
 
 export const findAllInventories = async (idUser: number): Promise<IInventory[]> => {
     let id: number = await getIdAdmin(idUser);
-    let query = `select i.id, s.sparePart, i.value, i.idUser, i.date, i.saleDate, i.amount, i.id_Admin
+    let query = `select i.id, i.value, i.idUser, i.date, i.saleDate, i.amount, i.id_Admin, s.sparePart, s.brand
                 from inventory as i inner join spareparts as s on i.sparePart = s.id where i.id_Admin = ?`;
     return await executeQuery<IInventory[]>(query, [id]);
 }

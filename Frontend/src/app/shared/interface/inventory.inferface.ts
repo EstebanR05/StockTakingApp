@@ -6,4 +6,5 @@ export interface IInventory {
     date: string,
     saleDate: string,
     idUser: number,
+    brand?: string;
 }
