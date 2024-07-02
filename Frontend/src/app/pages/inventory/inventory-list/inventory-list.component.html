@@ -40,7 +40,7 @@
                                 <tr *ngFor="let list of this.inventory">
                                     <td> {{ list.sparePart }}</td>
                                     <td> {{ list.brand }}</td>
-                                    <td> {{ list.value }}</td>
+                                    <td> {{ list.value | currency : "$" : true : "2.2-4" }}</td>
                                     <td> {{ list.amount }}</td>
                                     <td> {{ list.date | date: "dd-mm-yy"}}</td>
                                     <td> {{ list.saleDate | date: "dd-mm-yy" }}</td>
