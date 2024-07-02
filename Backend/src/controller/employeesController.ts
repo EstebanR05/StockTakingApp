@@ -54,7 +54,7 @@ export const updateEmployee = async (_req: Request, res: Response) => {
 export const deleteEmployee = async (_req: Request, res: Response) => {
     try {
         await deleteEmployees(parseInt(_req.params.id, 10));
-        res.status(200).send('success');
+        res.status(200).send({ success: 'success' });
     } catch (error: any) {
         res.status(500).json({ message: error.error });
     }
