@@ -9,6 +9,7 @@ import dotenv from "dotenv";
 import UserRoute from "./routes/UserRoute";
 import employeesRoute from "./routes/EmployeesRoute";
 import replacementRoute from "./routes/replacementRoute";
+import inventoryRoute from "./routes/inventoryRoute";
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use(bodyParser.json());
 app.use("/api", UserRoute);
 app.use("/api/employees", employeesRoute);
 app.use("/api/spareparts", replacementRoute );
+app.use("/api/inventories", inventoryRoute); 
 
 const server = http.createServer(app);
 

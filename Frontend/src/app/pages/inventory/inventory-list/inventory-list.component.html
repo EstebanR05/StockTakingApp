@@ -2,92 +2,6 @@
     <div class="container-fluid">
         <div class="header-body">
             <!-- Card stats -->
-            <div class="row">
-                <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Traffic</h5>
-                                    <span class="h2 font-weight-bold mb-0">350,897</span>
-                                </div>
-                                <div class="col-auto">
-                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                                        <i class="fas fa-chart-bar"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="mt-3 mb-0 text-muted text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                <span class="text-nowrap">Since last month</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
-                                    <span class="h2 font-weight-bold mb-0">2,356</span>
-                                </div>
-                                <div class="col-auto">
-                                    <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                                        <i class="fas fa-chart-pie"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="mt-3 mb-0 text-muted text-sm">
-                                <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 3.48%</span>
-                                <span class="text-nowrap">Since last week</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
-                                    <span class="h2 font-weight-bold mb-0">924</span>
-                                </div>
-                                <div class="col-auto">
-                                    <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                                        <i class="fas fa-users"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="mt-3 mb-0 text-muted text-sm">
-                                <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
-                                <span class="text-nowrap">Since yesterday</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
-                                    <span class="h2 font-weight-bold mb-0">49,65%</span>
-                                </div>
-                                <div class="col-auto">
-                                    <div class="icon icon-shape bg-info text-white rounded-circle shadow">
-                                        <i class="fas fa-percent"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="mt-3 mb-0 text-muted text-sm">
-                                <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
-                                <span class="text-nowrap">Since last month</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -98,360 +12,61 @@
         <div class="col">
             <div class="card shadow">
                 <div class="card-header border-0">
-                    <h3 class="mb-0">Card tables</h3>
+                    <div class="d-flex justify-content-between">
+                        <strong class="aling-self-center">Información</strong>
+                        <div class="d-flex flex-row-reverse bd-highlight">
+                            <div class="btn-group">
+                                <button (click)="this.route.navigate(['/inventory/create'])"
+                                    class="btn btn-sm ml-2 btn-primary" type="button">
+                                    Crear
+                                </button>
+                            </div>
+                        </div>
                 </div>
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">Project</th>
-                                <th scope="col">Budget</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Users</th>
-                                <th scope="col">Completion</th>
-                                <th scope="col"></th>
+                                <th scope="col">Repuesto</th>
+                                <th scope="col">Valor</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Fecha de venta</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <div class="media align-items-center">
-                                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                                            <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
-                                        </a>
-                                        <div class="media-body">
-                                            <span class="mb-0 text-sm">Argon Design System</span>
-                                        </div>
+                           <tr *ngFor="let list of this.inventory">
+                            <td> {{ list.sparePart }}</td>
+                            <td> {{ list.value }}</td>
+                            <td> {{ list.date }}</td>
+                            <td> {{ list.saleDate }}</td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Acciones">
+                                    <div class="btn-group" role="group" aria-label="Editar">
+                                        <button type="button" class="btn btn-sm bg-white"
+                                            (click)="this.route.navigate(['/spareparts/update/', list.id])">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="text-primary bi bi-brush"
+                                                viewBox="0 0 16 16">
+                                                <path
+                                                    d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.1 6.1 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.1 8.1 0 0 1-3.078.132 4 4 0 0 1-.562-.135 1.4 1.4 0 0 1-.466-.247.7.7 0 0 1-.204-.288.62.62 0 0 1 .004-.443c.095-.245.316-.38.461-.452.394-.197.625-.453.867-.826.095-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.201-.925 1.746-.896q.19.012.348.048c.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.176-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04M4.705 11.912a1.2 1.2 0 0 0-.419-.1c-.246-.013-.573.05-.879.479-.197.275-.355.532-.5.777l-.105.177c-.106.181-.213.362-.32.528a3.4 3.4 0 0 1-.76.861c.69.112 1.736.111 2.657-.12.559-.139.843-.569.993-1.06a3 3 0 0 0 .126-.75zm1.44.026c.12-.04.277-.1.458-.183a5.1 5.1 0 0 0 1.535-1.1c1.9-1.996 4.412-5.57 6.052-8.631-2.59 1.927-5.566 4.66-7.302 6.792-.442.543-.795 1.243-1.042 1.826-.121.288-.214.54-.275.72v.001l.575.575zm-4.973 3.04.007-.005zm3.582-3.043.002.001h-.002z" />
+                                            </svg>
+                                        </button>
                                     </div>
-                                </th>
-                                <td>
-                                    $2,500 USD
-                                </td>
-                                <td>
-                                    <span class="badge badge-dot mr-4">
-                                        <i class="bg-warning"></i> pending
-                                    </span>
-                                </td>
-                                <td>
-                                    <div class="avatar-group">
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Ryan Tompson">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Romina Hadid">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Alexander Smith">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Jessica Doe">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
+                                    <div class="btn-group" role="group" aria-label="Eliminar">
+                                        <button type="button" class="btn btn-sm bg-white"
+                                            (click)="this.delete(list.id)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="text-danger bi bi-eraser"
+                                                viewBox="0 0 16 16">
+                                                <path
+                                                    d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828zm2.121.707a1 1 0 0 0-1.414 0L4.16 7.547l5.293 5.293 4.633-4.633a1 1 0 0 0 0-1.414zM8.746 13.547 3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293z" />
+                                            </svg>
+                                        </button>
                                     </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span class="mr-2">60%</span>
-                                        <div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-warning" role="progressbar"
-                                                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                    style="width: 60%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-right">
-                                    <div ngbDropdown placement="bottom-right">
-                                        <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <div class="media align-items-center">
-                                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                                            <img alt="Image placeholder" src="../assets/img/theme/angular.jpg">
-                                        </a>
-                                        <div class="media-body">
-                                            <span class="mb-0 text-sm">Angular Now UI Kit PRO</span>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td>
-                                    $1,800 USD
-                                </td>
-                                <td>
-                                    <span class="badge badge-dot">
-                                        <i class="bg-success"></i> completed
-                                    </span>
-                                </td>
-                                <td>
-                                    <div class="avatar-group">
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Ryan Tompson">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Romina Hadid">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Alexander Smith">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Jessica Doe">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span class="mr-2">100%</span>
-                                        <div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-success" role="progressbar"
-                                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-                                                    style="width: 100%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-right">
-                                    <div ngbDropdown placement="bottom-right">
-                                        <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <div class="media align-items-center">
-                                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                                            <img alt="Image placeholder" src="../assets/img/theme/sketch.jpg">
-                                        </a>
-                                        <div class="media-body">
-                                            <span class="mb-0 text-sm">Black Dashboard</span>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td>
-                                    $3,150 USD
-                                </td>
-                                <td>
-                                    <span class="badge badge-dot mr-4">
-                                        <i class="bg-danger"></i> delayed
-                                    </span>
-                                </td>
-                                <td>
-                                    <div class="avatar-group">
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Ryan Tompson">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Romina Hadid">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Alexander Smith">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Jessica Doe">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span class="mr-2">72%</span>
-                                        <div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-danger" role="progressbar"
-                                                    aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"
-                                                    style="width: 72%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-right">
-                                    <div ngbDropdown placement="top-right">
-                                        <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <div class="media align-items-center">
-                                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                                            <img alt="Image placeholder" src="../assets/img/theme/react.jpg">
-                                        </a>
-                                        <div class="media-body">
-                                            <span class="mb-0 text-sm">React Material Dashboard</span>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td>
-                                    $4,400 USD
-                                </td>
-                                <td>
-                                    <span class="badge badge-dot">
-                                        <i class="bg-info"></i> on schedule
-                                    </span>
-                                </td>
-                                <td>
-                                    <div class="avatar-group">
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Ryan Tompson">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Romina Hadid">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Alexander Smith">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Jessica Doe">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span class="mr-2">90%</span>
-                                        <div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90"
-                                                    aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-right">
-                                    <div ngbDropdown placement="top-right">
-                                        <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <div class="media align-items-center">
-                                        <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                                            <img alt="Image placeholder" src="../assets/img/theme/vue.jpg">
-                                        </a>
-                                        <div class="media-body">
-                                            <span class="mb-0 text-sm">Vue Paper UI Kit PRO</span>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td>
-                                    $2,200 USD
-                                </td>
-                                <td>
-                                    <span class="badge badge-dot mr-4">
-                                        <i class="bg-success"></i> completed
-                                    </span>
-                                </td>
-                                <td>
-                                    <div class="avatar-group">
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Ryan Tompson">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Romina Hadid">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Alexander Smith">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                                            data-original-title="Jessica Doe">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg"
-                                                class="rounded-circle">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span class="mr-2">100%</span>
-                                        <div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-success" role="progressbar"
-                                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-                                                    style="width: 100%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-right">
-                                    <div ngbDropdown placement="top-right">
-                                        <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                                            <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                </div>
+                            </td>
+                           </tr> 
                         </tbody>
                     </table>
                 </div>
