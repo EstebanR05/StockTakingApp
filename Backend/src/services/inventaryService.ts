@@ -1,11 +1,13 @@
-import { selectQuery, insertQuery, updateQuery, deleteQuery } from "../Core/generalQuerys";
+import { selectQuery, insertQuery, updateQuery, deleteQuery, executeQuery } from "../Core/generalQuerys";
 import { IInventory } from "../interface/inventory.interface";
 import { Iuser } from "../interface/user.interface";
 import { findByIdUser } from "./UserService";
 
 export const findAllInventories = async (idUser: number): Promise<IInventory[]> => {
     let id: number = await getIdAdmin(idUser);
-    return await selectQuery<IInventory[]>('inventory', ['*'], 'id_Admin = ?', [id]);
+    let query = `select i.id, s.sparePart, i.value, i.idUser, i.date, i.saleDate, i.amount, i.id_Admin
+                from inventory as i inner join spareparts as s on i.sparePart = s.id where i.id_Admin = ?`;
+    return await executeQuery<IInventory[]>(query, [id]);
 }
 
 export const findByIdInventories = async (id: number): Promise<IInventory> => {
