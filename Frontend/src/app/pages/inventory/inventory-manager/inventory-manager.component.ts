@@ -55,12 +55,15 @@ export class InventoryManagerComponent extends BaseComponent implements OnInit {
     try {
       const result: IInventory = await this.inventoryService.getById(this.id);
 
+      const date = new Date(result.date);
+      const saleDate = new Date(result.saleDate);
+
       this.form.patchValue({
         sparePart: result.sparePart,
         value: result.value,
         amount: result.amount,
-        date: result.date,
-        saleDate: result.saleDate,
+        date: date.toISOString().split('T')[0],
+        saleDate: saleDate.toISOString().split('T')[0],
       });
     } catch (error) {
       console.error('Error fetching task', error);
@@ -75,8 +78,8 @@ export class InventoryManagerComponent extends BaseComponent implements OnInit {
     } else {
       this.inventoryService.create(this.form.value)
     }
-
-    return this.route.navigate(['/inventory/list']);
+    await this.handleSuccess('success');
+    return this.route.navigate(['/inventory/list']); 
   }
 
 }

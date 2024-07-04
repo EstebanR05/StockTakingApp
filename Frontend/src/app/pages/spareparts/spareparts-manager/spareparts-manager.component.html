@@ -38,6 +38,9 @@
                                         <input formControlName="image" type="text"
                                             class="form-control form-control-alternative border border-dark" placeholder="Imagen">
                                     </div>
+                                    <div *ngIf="getControl('image').invalid && ngForm.submitted" class="text-left" optionLabel="name">
+                                        <label class="text-danger text-xs">Imagen es requerida o invalida</label>
+                                      </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
@@ -46,6 +49,9 @@
                                             class="form-control form-control-alternative border border-dark"
                                             placeholder="repuesto" formControlName="sparePart">
                                     </div>
+                                    <div *ngIf="getControl('sparePart').invalid && ngForm.submitted" class="text-left" optionLabel="name">
+                                        <label class="text-danger text-xs">Nombre del repuesto es requerido o invalido</label>
+                                      </div>
                                 </div>
                             </div>
                             <div class="row mt-4">
@@ -57,6 +63,9 @@
                                             class="form-control form-control-alternative border border-dark" placeholder="Marca del repuesto"
                                             formControlName="brand">
                                     </div>
+                                    <div *ngIf="getControl('brand').invalid && ngForm.submitted" class="text-left" optionLabel="name">
+                                        <label class="text-danger text-xs">Marca es requerida o invalida</label>
+                                      </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
@@ -66,6 +75,9 @@
                                             class="form-control form-control-alternative border border-dark" placeholder="Codigo"
                                             formControlName="code">
                                     </div>
+                                    <div *ngIf="getControl('code').invalid && ngForm.submitted" class="text-left" optionLabel="name">
+                                        <label class="text-danger text-xs">Codigo es requerido o invalido</label>
+                                      </div>
                                 </div>
                             </div>
                         </div>

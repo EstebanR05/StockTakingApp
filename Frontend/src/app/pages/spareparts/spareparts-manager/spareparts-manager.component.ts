@@ -63,7 +63,7 @@ export class SparepartsManagerComponent extends BaseComponent implements OnInit 
     }
 
     this.route.navigate(['/spareparts/list']);
-    return Swal.fire('Saved!', '', 'success');
+    return this.handleSuccess('success');
    }
 
 }
