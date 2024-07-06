@@ -37,13 +37,8 @@
                                     <div class="form-group">
                                         <label class="form-control-label text-dark fw-bold " for="input-username">Nombre
                                             Repuesto</label>
-                                        <select class="form-select" formControlName="sparePart">
-                                            <ng-container *ngFor="let sparepart of spareparts">
-                                                <option [value]="sparepart.id">
-                                                    {{sparepart.sparePart +" - "+ sparepart.brand}}
-                                                </option>
-                                            </ng-container>
-                                        </select>
+                                        <ng-select formControlName="sparePart" placeholder="Busca el producto" formControlName="sparePart" [items]="test" bindLabel="sparePart" bindValue="id" [(ngModel)]="selectedproduct">
+                                        </ng-select>
                                         <div *ngIf="getControl('sparePart').invalid && ngForm.submitted"
                                             class="text-left">
                                             <label class="text-danger text-xs">Es requerido o invalido</label>

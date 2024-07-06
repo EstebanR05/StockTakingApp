@@ -7,6 +7,7 @@ import { IInventory } from 'src/app/shared/interface/inventory.inferface';
 import { IReplacement } from 'src/app/shared/interface/replacement.interface';
 import { InventoryService } from 'src/app/shared/services/inventory.service';
 import { ReplacementService } from 'src/app/shared/services/replacement.service';
+import {NgSelectModule, NgOption} from '@ng-select/ng-select';
 
 @Component({
   selector: 'app-inventory-manager',
@@ -17,6 +18,8 @@ export class InventoryManagerComponent extends BaseComponent implements OnInit {
 
   public id: any = this.ActiveRoute.snapshot.paramMap.get('id');
   public spareparts: IReplacement[] = [];
+  selectedproduct: any;
+  test = []
 
   constructor(
     public location: Location,
@@ -46,6 +49,11 @@ export class InventoryManagerComponent extends BaseComponent implements OnInit {
   async getAllSpareParts(): Promise<void> {
     try {
        this.spareparts = await this.replacementService.getAll();
+       this.test = this.spareparts.map(item => ({
+        id: item.id,
+        sparePart: item.sparePart + ' - ' + item.brand
+      }));
+  
     } catch (error: any) {
       this.handleError(error.error.message);
     }
@@ -54,6 +62,7 @@ export class InventoryManagerComponent extends BaseComponent implements OnInit {
   async getValuesForm(): Promise<void> {
     try {
       const result: IInventory = await this.inventoryService.getById(this.id);
+      
 
       const date = new Date(result.date);
       const saleDate = new Date(result.saleDate);
