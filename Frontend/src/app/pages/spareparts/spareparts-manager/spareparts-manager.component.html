@@ -14,7 +14,7 @@
                 <div class="card shadow">
                     <div class="card-header ">
                         <div class="d-flex justify-content-between">
-                            <strong>Datos del repuesto</strong>
+                            <strong>Datos del producto</strong>
                             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group me-2" role="group" aria-label="First group">
                                     <button class="btn btn-primary btn-sm" type="submit">
@@ -35,8 +35,10 @@
                                 <div class="col-lg-6">
                                     <div class="form-group ">
                                         <label class="form-control-label text-dark fw-bold " for="input-username">Imagen</label>
-                                        <input formControlName="image" type="text"
-                                            class="form-control form-control-alternative border border-dark" placeholder="Imagen">
+                                        <select class=" form-control form-control-alternative form-select form-select-sm" formControlName="image">
+                                            <option [ngValue]="null" disabled>Selecciona una imagen</option>
+                                            <option [value]="item" *ngFor="let item of imagenes"> {{ item }}</option>
+                                        </select>
                                     </div>
                                     <div *ngIf="getControl('image').invalid && ngForm.submitted" class="text-left" optionLabel="name">
                                         <label class="text-danger text-xs">Imagen es requerida o invalida</label>
@@ -46,7 +48,7 @@
                                     <div class="form-group">
                                         <label class="form-control-label fw-bold" for="input-email">Nombre</label>
                                         <input type="text"
-                                            class="form-control form-control-alternative border border-dark"
+                                            class="form-control form-control-alternative"
                                             placeholder="repuesto" formControlName="sparePart">
                                     </div>
                                     <div *ngIf="getControl('sparePart').invalid && ngForm.submitted" class="text-left" optionLabel="name">
@@ -60,7 +62,7 @@
                                         <label class="form-control-label fw-bold"
                                             for="input-first-name">Marca</label>
                                         <input type="text"
-                                            class="form-control form-control-alternative border border-dark" placeholder="Marca del repuesto"
+                                            class="form-control form-control-alternative" placeholder="Marca del repuesto"
                                             formControlName="brand">
                                     </div>
                                     <div *ngIf="getControl('brand').invalid && ngForm.submitted" class="text-left" optionLabel="name">
@@ -72,7 +74,7 @@
                                         <label class="form-control-label fw-bold"
                                             for="input-last-name">Codigo</label>
                                         <input type="text" 
-                                            class="form-control form-control-alternative border border-dark" placeholder="Codigo"
+                                            class="form-control form-control-alternative" placeholder="Codigo"
                                             formControlName="code">
                                     </div>
                                     <div *ngIf="getControl('code').invalid && ngForm.submitted" class="text-left" optionLabel="name">

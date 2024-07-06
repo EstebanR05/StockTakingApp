@@ -10,7 +10,7 @@ export const pagesRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'employees', loadChildren: () => import('src/app/pages/employees/employees.module').then(m => m.EmployeesModule) },
   { path: 'inventory', loadChildren: () => import('src/app/pages/inventory/inventory.module').then(m => m.InventoryModule) },
-  { path: 'spareparts', loadChildren: () => import('src/app/pages/spareparts/spareparts.module').then(m => m.SparepartsModule) },
+  { path: 'products', loadChildren: () => import('src/app/pages/spareparts/spareparts.module').then(m => m.SparepartsModule) },
   { path: 'user-profile', component: UserProfileComponent },
   //others or core components of template
   { path: 'tables', component: TablesComponent },

@@ -15,6 +15,11 @@ import Swal from 'sweetalert2';
 export class SparepartsManagerComponent extends BaseComponent implements OnInit {
 
   public id: any = this.ActiveRoute.snapshot.paramMap.get('id');
+  public imagenes:string[] = [
+    'alimentos',
+    'entretenimiento',
+    'ferreteros'
+  ]
 
   constructor(
     public location: Location,
@@ -62,7 +67,7 @@ export class SparepartsManagerComponent extends BaseComponent implements OnInit 
       await this.replacementService.create(this.form.value);
     }
 
-    this.route.navigate(['/spareparts/list']);
+    this.route.navigate(['/products/list']);
     return this.handleSuccess('success');
    }
 
