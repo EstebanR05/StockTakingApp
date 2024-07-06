@@ -13,8 +13,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./employees-manager.component.scss']
 })
 export class EmployeesManagerComponent extends BaseComponent implements OnInit {
-
+  public selected = "Selecciona una imagen"
   public id: any = this.ActiveRoute.snapshot.paramMap.get('id');
+  public images: string[] = [
+    'admin',
+    'employee'
+  ]
 
   constructor(
     public location: Location,
@@ -27,6 +31,7 @@ export class EmployeesManagerComponent extends BaseComponent implements OnInit {
   ngOnInit(): void {
 
     this.form = this.fb.group({
+      pfp: ['', Validators.required],
       name: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -53,6 +58,7 @@ export class EmployeesManagerComponent extends BaseComponent implements OnInit {
       const result: IEmployees = await this.employeeService.getById(this.id);
 
       this.form.patchValue({
+        pfp: result.pfp,
         name: result.name,
         lastName: result.lastName,
         email: result.email,

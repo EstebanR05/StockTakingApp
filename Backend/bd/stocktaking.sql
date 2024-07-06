@@ -80,6 +80,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(22) NOT NULL,
   `lastName` varchar(22) DEFAULT NULL,
+  `pfp` varchar(22) DEFAULT NULL,
   `email` varchar(22) NOT NULL,
   `password` varchar(22) NOT NULL,
   `username` varchar(20) DEFAULT NULL,
@@ -100,13 +101,13 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `lastName`, `email`, `password`, `username`, `age`, `staff`, `company`, `address`, `phone`, `city`, `country`, `userInformation`, `postalCode`, `aboutMe`, `id_admin`) VALUES
-(1, 'emanuel esteban', 'restrepo', 'e05072003@gmail.com', '$2b$10$/ZVcbLPSiVKSMj/', 'nabetse05', 21, 'desarrolador de soft', 'Siscontri Software', 'carrera #5 - 22', '3116686210', 'popayan', 'colombia', 'quiero crecer cada dia mas en esta empresa', 1456, 'ill be one the greatest', NULL),
-(2, 'steiner', 'herrera', 'steinerherrera@gmail.c', '$2b$10$9QqzmhR/S.0mZXA', 'juegosSteiner', 18, 'empleado', 'Amazon', 'carrera #6 - 22', '302 6226935', 'cali', 'colombia', 'Me gusta la sandia', 6541, 'hello word im steiner', NULL),
-(16, 'miguel', 'pinto', 'pinto@gmail.com', '123456', 'pinto', 18, 'gerente financiero', 'webcol', 'carerra 4 #13-15', '325012145', 'cali', 'Colombia', 'te encargaras de manejar las finanzas y ser un excelente trabajador', 5623256, 'excelente persona, muy tranquilo y buen compañero', 1),
-(18, 'fernando', NULL, 'fernando@gmail.com', '$2b$10$TNYv5zxHt59C8Yu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(19, '1111479211', 'herrera', 'pinto@gmail.com', '123456', 'pinto', 18, 'empacador', 'tubos y maderas', '3116686210', '3116686210', 'Piendamó', 'Colombia', 'es bueno', 190530, 'execlente', 18),
-(20, '1111479211', 'zurdo', 'zurdo@gmail.com', '', 'zurdo', 18, '1111479211', 'miguel', '3116686210', '3116686210', 'Piendamó', 'Colombia', 'ass', 190530, 'ass', 18);
+INSERT INTO `users` (`id`, `name`, `lastName`,`pfp`, `email`, `password`, `username`, `age`, `staff`, `company`, `address`, `phone`, `city`, `country`, `userInformation`, `postalCode`, `aboutMe`, `id_admin`) VALUES
+(1, 'emanuel esteban', 'restrepo', 'admin', 'e05072003@gmail.com', '$2b$10$/ZVcbLPSiVKSMj/', 'nabetse05', 21, 'desarrolador de soft', 'Siscontri Software', 'carrera #5 - 22', '3116686210', 'popayan', 'colombia', 'quiero crecer cada dia mas en esta empresa', 1456, 'ill be one the greatest', NULL),
+(2, 'steiner', 'herrera', 'admin', 'steinerherrera@gmail.c', '$2b$10$9QqzmhR/S.0mZXA', 'juegosSteiner', 18, 'empleado', 'Amazon', 'carrera #6 - 22', '302 6226935', 'cali', 'colombia', 'Me gusta la sandia', 6541, 'hello word im steiner', NULL),
+(16, 'miguel', 'pinto', 'employee', 'pinto@gmail.com', '123456', 'pinto', 18, 'gerente financiero', 'webcol', 'carerra 4 #13-15', '325012145', 'cali', 'Colombia', 'te encargaras de manejar las finanzas y ser un excelente trabajador', 5623256, 'excelente persona, muy tranquilo y buen compañero', 1),
+(18, 'fernando', NULL, 'employee', 'fernando@gmail.com', '$2b$10$TNYv5zxHt59C8Yu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(19, '1111479211', 'herrera', 'employee', 'pinto@gmail.com', '123456', 'pinto', 18, 'empacador', 'tubos y maderas', '3116686210', '3116686210', 'Piendamó', 'Colombia', 'es bueno', 190530, 'execlente', 18),
+(20, '1111479211', 'zurdo', 'employee', 'zurdo@gmail.com', '', 'zurdo', 18, '1111479211', 'miguel', '3116686210', '3116686210', 'Piendamó', 'Colombia', 'ass', 190530, 'ass', 18);
 
 --
 -- Indexes for dumped tables
