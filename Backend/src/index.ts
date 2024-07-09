@@ -27,6 +27,35 @@ app.use("/api/employees", employeesRoute);
 app.use("/api/spareparts", replacementRoute );
 app.use("/api/inventories", inventoryRoute); 
 
+//File upload
+
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: (_req: any, _file:any, cb:any) => {
+    cb(null, "./files");
+  },
+  filename: (_req: any, file:any, cb: any) => {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage });
+
+app.post("/api/upload", upload.single("file"), (_req: any, _res: any) => {
+  const responseData = {
+    message: "Archivo subido",
+    originalFileName: _req.file.originalName,
+    mimeType: _req.file.mimetype,
+    sizeInBytes: _req.file.size
+
+  }
+
+  _res.status(200).json(responseData);
+});
+
+app.use(express.static("public"));
+
 const server = http.createServer(app);
 
 server.listen(_PORT, () => {

@@ -36,7 +36,7 @@
                         </thead>
                         <tbody>
                            <tr *ngFor="let list of this.spareparts">
-                            <td> <img src="assets/img/products/{{list.image}}.png" width="35px" alt=""> </td>
+                            <td> <img src="{{list.image}}" width="35px" alt=""> </td>
                             <td> {{ list.sparePart }}</td>
                             <td> {{ list.brand }}</td>
                             <td> {{ list.code }}</td>

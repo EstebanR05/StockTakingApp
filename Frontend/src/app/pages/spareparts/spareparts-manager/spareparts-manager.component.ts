@@ -21,6 +21,9 @@ export class SparepartsManagerComponent extends BaseComponent implements OnInit 
     'ferreteros'
   ]
 
+  public url: string = 'assets/img/products/ferreteros.png';
+  private fileName: string  = 'pepito.png';
+
   constructor(
     public location: Location,
     public replacementService: ReplacementService,
@@ -48,13 +51,28 @@ export class SparepartsManagerComponent extends BaseComponent implements OnInit 
       const result: IReplacement = await this.replacementService.getById(this.id);
 
       this.form.patchValue({
-        image: result.image,
+        image: this.url,
         sparePart: result.sparePart,
         brand: result.brand,
         code: result.code
       });
     } catch(error) {
       console.error(error);
+    }
+   }
+
+   onselectedFile(event) {
+    if (event.target.files) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+        const file = event.target.files[0];
+        reader.readAsText(event.target.files[0]);
+        const fileN = file.name;
+        this.fileName = fileN;
+        this.form.patchValue({ image: this.fileName });
+      }
     }
    }
 
