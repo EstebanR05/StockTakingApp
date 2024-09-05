@@ -61,7 +61,20 @@ This software is designed to manage motorcycle and car workshops, providing tool
    ```bash
    npm start
    ```
+backend:
+cd /StockTakingApp/Backend
+npm start
+npm run dev
 
+frontend:
+cd /StockTakingApp/Frontend
+npm install --force
+npm start
+
+
+version 
+Angular CLI: 14.2.0
+node js: v16.16.0
 ---
 
 Thank you for using our motorcycle and car workshop management software!
