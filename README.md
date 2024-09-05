@@ -44,37 +44,50 @@ This software is designed to manage motorcycle and car workshops, providing tool
 
 ## Installation and Configuration
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/EstebanR05/StockTakingApp.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd StockTakingApp
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Configure environment variables in a `.env` file.
-5. Start the server:
-   ```bash
-   npm start
-   ```
-backend:
-cd /StockTakingApp/Backend
-npm start
-npm run dev
+### 1. Clone the Repository
+```bash
+git clone https://github.com/EstebanR05/StockTakingApp.git
+```
 
-frontend:
-cd /StockTakingApp/Frontend
+### 2. Navigate to the Project Directory
+```bash
+cd StockTakingApp
+```
+
+### 3. Install Backend Dependencies
+```bash
+cd Backend
+npm install
+```
+
+### 4. Install Frontend Dependencies
+```bash
+cd Frontend
 npm install --force
+```
+
+### 5. Configure Environment Variables
+Create a `.env` file in the root directory and add the necessary environment variables.
+
+### 6. Start the Backend Server
+Navigate to the backend directory:
+```bash
+cd StockTakingApp/Backend
+npm run dev
+```
+
+### 7. Start the Frontend Server
+Navigate to the frontend directory:
+```bash
+cd StockTakingApp/Frontend
 npm start
+```
 
+### Versions
+- **Angular CLI:** 14.2.0
+- **Node.js:** v16.16.0
 
-version 
-Angular CLI: 14.2.0
-node js: v16.16.0
+This updated version organizes the steps more clearly and adds a bit of structure for easier understanding.
 ---
 
 Thank you for using our motorcycle and car workshop management software!
